@@ -1,0 +1,30 @@
+Town List
+    -Feldor
+    -Crankston
+
+Each town has a function and the function is to update prices.
+
+The main mover of price will be supply in one town relative to another.
+
+Products
+    -Iron Ore
+    -Corn
+
+Variables to consider
+    -Price normalization over time.  
+    This is the tendency for differing prices in towns to slowly converge to one price across the board.  This is assumed to be because of arbitrage business transactions like trading.  
+    This is meant to be a slow process which can be easily outran by traveling to and from locations.  
+    The real mover of markets is going to be supply side, which is a different matter to consider.
+    -City initializations need to consider distance relative to one another in their calulations.  Maybe price normalization can be stronger the closer cities are together.
+
+Supply Variables
+    -Jobs(industry specific.  This opens the door for meta data regarding wages for transferrable skills.  Iron and Coal miners are similar and might share a workforce.)
+    -Workers
+
+We'll use numbers in the code, but the translation at the end in the UI will be 10 for 1 copper, 100 for 1 silver, and 1000 for 1 gold piece.
+
+BASIC PRICING LOGIC
+the Price_Calculator and Map_Total_Supply functions provide this.
+Map_Total_Supply finds the total quantity of one product
+Price_Calculator calculates the Market Cap of a certain product using the base price and total amount.  Market cap is then divided by each cities individual stockpiles.
+Obviously this is not how real markets function because it assumes equal demand across all the cities.  It provides somewhat realistic numbers to start with.  I intend to alter them later with other variables.
