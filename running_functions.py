@@ -40,5 +40,13 @@ def Price_Calculator(
     total_product = Map_Total_Supplies(city[product]["supply"])
     market_cap = total_product * city[product]["base_price"]
     city[product]["moving_price"] = int(market_cap / city[product]["supply"])
-    print(city)
     return city
+
+
+def Money_Converter(
+    integer,
+):  # input: integer, output: string of gold, silver, and copper abbreviated as 1g, 1s, 1c
+    gold = integer // 1000
+    silver = (integer % 1000) // 100
+    copper = integer % 100
+    return f"{gold}g {silver}s {copper}c"
