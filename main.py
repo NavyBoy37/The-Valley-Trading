@@ -3,7 +3,7 @@
         Current example below shows problem."""
 
 import time
-from basic_town_functions import visit_market
+from basic_town_functions import visit_market, visit_money_exchange
 from initial_generation import (
     Feldor_Initialization,
     Crankston_Initialization,
@@ -36,7 +36,7 @@ iron_ore
 """
 player = Player_Initialization()
 wagon = Wagon_Initialization()
-player["location_dictionary"] = Feldor_Initialization()  # temp
+player["city"] = Feldor_Initialization()  # temp
 print(
     "You finally did it... After years of hard work, you have enough silver to buy a cart."
 )
@@ -48,7 +48,8 @@ print(
     + " silver, you can finally start your journey.  You set your sights on the horizon."
 )
 ##testing zone below
-visit_market(wagon, player["location_dictionary"])
+visit_money_exchange(wagon, player["city"])
+visit_market(wagon, player["city"])
 print("Copper:  " + str(wagon["cart"]["copper"]))
 print("Silver:  " + str(wagon["cart"]["silver"]))
 print("Gold:  " + str(wagon["cart"]["gold"]))

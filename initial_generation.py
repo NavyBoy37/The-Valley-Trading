@@ -4,7 +4,7 @@ import random
 def Player_Initialization():
     player = {
         "name": None,
-        "location_dictionary": None,
+        "city": None,
     }
     return player
 
@@ -21,6 +21,12 @@ def Wagon_Initialization():
 def Feldor_Initialization():  # input: None, Output:  Feldor Dictionary
     feldor = {
         "name": "Crankston",
+        "exchange_fees": {
+            "cs": 1,
+            "sg": 1,
+            "gs": 1,
+            "sc": 1,
+        },
         "corn": {
             "supply": random.randint(1000, 1700),
             "base_price": 10,
@@ -40,6 +46,12 @@ def Feldor_Initialization():  # input: None, Output:  Feldor Dictionary
 def Crankston_Initialization():  # input: None, Output:  Crankston Dictionary
     crankston = {
         "name": "Crankston",
+        "exchange_fees": {
+            "cs": 1,
+            "sg": 1,
+            "gs": 1,
+            "sc": 1,
+        },
         "corn": {
             "supply": random.randint(250, 500),
             "base_price": 10,
@@ -59,6 +71,12 @@ def Crankston_Initialization():  # input: None, Output:  Crankston Dictionary
 def Tetra_Tower_Initialization():  # input: None, Output:  Tetra Tower Dictionary
     tetra_tower = {
         "name": "Tetra Tower",
+        "exchange_fees": {
+            "cs": 1,
+            "sg": 1,
+            "gs": 1,
+            "sc": 1,
+        },
         "corn": {
             "supply": random.randint(3200, 8000),
             "base_price": 10,
@@ -78,6 +96,12 @@ def Tetra_Tower_Initialization():  # input: None, Output:  Tetra Tower Dictionar
 def Cabella_Initialization():  # input: None, Output:  Cabella Dictionary
     cabella = {
         "name": "Cabella",
+        "exchange_fees": {
+            "cs": 1,
+            "sg": 1,
+            "gs": 1,
+            "sc": 1,
+        },
         "corn": {
             "supply": random.randint(1300, 4500),
             "base_price": 10,
@@ -97,6 +121,12 @@ def Cabella_Initialization():  # input: None, Output:  Cabella Dictionary
 def Foyella_Initialization():  # input: None, Output:  Foyella Dictionary
     foyella = {
         "name": "Foyella",
+        "exchange_fees": {
+            "cs": 1,
+            "sg": 1,
+            "gs": 1,
+            "sc": 1,
+        },
         "corn": {
             "supply": random.randint(2000, 4500),
             "base_price": 10,
