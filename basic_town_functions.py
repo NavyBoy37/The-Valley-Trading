@@ -1,53 +1,200 @@
 from running_functions import Money_Converter, Price_Calculator
 
 
-def market_interact(market, wagon, item, amount):  # TIED TO visit_market()
-    # Calculate total wagon money in copper pieces
-    total_copper = (
-        wagon["cart"]["gold"] * 1000
-        + wagon["cart"]["silver"] * 100
-        + wagon["cart"]["copper"]
-    )
+def display_coins(coins):  # TIED TO market_interact()
+    """Display exactly what coins are in possession"""
+    return f"{coins['gold']}g {coins['silver']}s {coins['copper']}c"
+
+
+def market_interact(market, wagon, item, amount):
+    if amount == 0:
+        print("Please enter a non-zero amount")
+        return wagon
+
+    cart = wagon["cart"]
 
     if amount > 0:  # Buying
-        # Check if market has enough supply
         if amount > market[item]["supply"]:
             print(f"The market doesn't have enough {item} in stock")
             return wagon
 
-        cost = market[item]["moving_price"] * amount
-        cost_str = Money_Converter(cost)  # For display purposes
+        # Get raw price per unit
+        unit_price = {
+            "gold": market[item]["moving_price"] // 1000,
+            "silver": (market[item]["moving_price"] % 1000) // 100,
+            "copper": market[item]["moving_price"] % 100,
+        }
 
-        if cost <= total_copper:
-            # Convert total transaction cost to currency denominations
-            remaining_copper = total_copper - cost
-            wagon["cart"]["gold"] = remaining_copper // 1000
-            wagon["cart"]["silver"] = (remaining_copper % 1000) // 100
-            wagon["cart"]["copper"] = remaining_copper % 100
+        print(f"Cost per unit: {display_coins(unit_price)}")
+        print(f"Current funds: {display_coins(cart)}")
+        print("Choose payment method:")
+        print("1. Gold pieces")
+        print("2. Silver pieces")
+        print("3. Copper pieces")
+        print("4. Cancel transaction")
 
-            market[item]["supply"] -= amount
-            print(f"You bought {amount} {item} for {cost_str}")
-        else:
-            print(f"You don't have enough money. Cost is {cost_str}")
+        choice = input()
+
+        if choice == "4":
+            return wagon
+
+        denomination = {"1": "gold", "2": "silver", "3": "copper"}[choice]
+
+        # Let player handle the math - just try to pay with what they chose
+        result_coins, success = pay_with_denomination(
+            unit_price, cart, denomination, amount
+        )
+        if not success:
+            print(f"Insufficient {denomination} pieces")
+            return wagon
+
+        cart = result_coins
+        market[item]["supply"] -= amount
+        print(f"You bought {amount} {item}")
 
     elif amount < 0:  # Selling
         sell_amount = abs(amount)
-        profit = market[item]["moving_price"] * sell_amount
-        profit_str = Money_Converter(profit)  # For display purposes
 
-        # Add profit to wagon's money
-        new_total = total_copper + profit
-        wagon["cart"]["gold"] = new_total // 1000
-        wagon["cart"]["silver"] = (new_total % 1000) // 100
-        wagon["cart"]["copper"] = new_total % 100
+        # Calculate raw profit in copper pieces
+        profit = {"copper": market[item]["moving_price"] * sell_amount}
 
+        # Add profit as copper pieces - let player convert later if desired
+        cart["copper"] += profit["copper"]
         market[item]["supply"] += sell_amount
-        print(f"You sold {sell_amount} {item} for {profit_str}")
+        print(f"You sold {sell_amount} {item} for {profit['copper']} copper pieces")
 
-    else:  # amount == 0
-        print("Please enter a non-zero amount")
+    wagon["cart"] = cart
+    return wagon
+
+
+def money_exchange(wagon, city):  # TIED TO market_interact()
+    """Allow player to convert between coin denominations with city-specific fees"""
+    exchange_fees = city.get(
+        "exchange_fees",
+        {
+            "copper_to_silver": 5,  # 5 copper fee
+            "silver_to_gold": 3,  # 3 silver fee
+            "gold_to_silver": 2,  # 2 silver fee
+            "silver_to_copper": 2,  # 2 copper fee
+        },
+    )
+
+    while True:
+        print(f"\nMoney Exchange - {city['name']}")
+        print(f"Current funds: {display_coins(wagon['cart'])}")
+        print(
+            f"1. Convert 100 copper to 1 silver - Fee: {exchange_fees['copper_to_silver']}c"
+        )
+        print(
+            f"2. Convert 10 silver to 1 gold - Fee: {exchange_fees['silver_to_gold']}s"
+        )
+        print(f"3. Break 1 gold to 10 silver - Fee: {exchange_fees['gold_to_silver']}s")
+        print(
+            f"4. Break 1 silver to 100 copper - Fee: {exchange_fees['silver_to_copper']}c"
+        )
+        print("5. Exit")
+
+        choice = input()
+
+        if choice == "1" and wagon["cart"]["copper"] >= (
+            100 + exchange_fees["copper_to_silver"]
+        ):
+            wagon["cart"]["copper"] -= 100 + exchange_fees["copper_to_silver"]
+            wagon["cart"]["silver"] += 1
+            print(
+                f"Converted 100 copper to 1 silver. Paid {exchange_fees['copper_to_silver']} copper fee."
+            )
+
+        elif choice == "2" and wagon["cart"]["silver"] >= (
+            10 + exchange_fees["silver_to_gold"]
+        ):
+            wagon["cart"]["silver"] -= 10 + exchange_fees["silver_to_gold"]
+            wagon["cart"]["gold"] += 1
+            print(
+                f"Converted 10 silver to 1 gold. Paid {exchange_fees['silver_to_gold']} silver fee."
+            )
+
+        elif choice == "3" and wagon["cart"]["gold"] >= 1:
+            if wagon["cart"]["silver"] >= exchange_fees["gold_to_silver"]:
+                wagon["cart"]["gold"] -= 1
+                wagon["cart"]["silver"] += 10 - exchange_fees["gold_to_silver"]
+                print(
+                    f"Converted 1 gold to {10 - exchange_fees['gold_to_silver']} silver. Paid {exchange_fees['gold_to_silver']} silver fee."
+                )
+            else:
+                print(
+                    f"Insufficient silver to pay the {exchange_fees['gold_to_silver']} silver fee."
+                )
+
+        elif choice == "4" and wagon["cart"]["silver"] >= 1:
+            wagon["cart"]["silver"] -= 1
+            wagon["cart"]["copper"] += 100 - exchange_fees["silver_to_copper"]
+            print(
+                f"Converted 1 silver to {100 - exchange_fees['silver_to_copper']} copper. Paid {exchange_fees['silver_to_copper']} copper fee."
+            )
+
+        elif choice == "5":
+            break
+        else:
+            print("Invalid choice or insufficient coins")
 
     return wagon
+
+
+def give_change(coins, change_amount):  # TIED TO market_interact()
+    """Add change to coins without auto-converting"""
+    coins["copper"] += change_amount
+    return coins
+
+
+def calculate_total_in_copper(coins):  # TIED TO market_interact()
+    """Calculate total value in copper pieces without modifying original coin amounts"""
+    return coins["gold"] * 1000 + coins["silver"] * 100 + coins["copper"]
+
+
+def can_afford_with_denomination(
+    cost, coins, denomination
+):  # TIED TO market_interact()
+    """Check if cost can be paid using a specific denomination"""
+    if denomination == "gold":
+        return coins["gold"] * 1000 >= cost
+    elif denomination == "silver":
+        return coins["silver"] * 100 >= cost
+    else:  # copper
+        return coins["copper"] >= cost
+
+
+def pay_with_denomination(cost_in_coins, payment_coins, denomination, amount):
+    """
+    Calculate total cost in copper first, then convert to chosen denomination
+    """
+    # Calculate total cost in copper, multiplying by amount being purchased
+    total_cost = (
+        cost_in_coins["gold"] * 1000
+        + cost_in_coins["silver"] * 100
+        + cost_in_coins["copper"]
+    ) * amount  # Need to add amount parameter
+
+    if denomination == "gold":
+        cost_in_chosen = (total_cost + 999) // 1000  # Round up to nearest gold
+        if payment_coins["gold"] >= cost_in_chosen:
+            payment_coins["gold"] -= cost_in_chosen
+            change = cost_in_chosen * 1000 - total_cost
+            payment_coins["copper"] += change
+            return payment_coins, True
+    elif denomination == "silver":
+        cost_in_chosen = (total_cost + 99) // 100  # Round up to nearest silver
+        if payment_coins["silver"] >= cost_in_chosen:
+            payment_coins["silver"] -= cost_in_chosen
+            change = cost_in_chosen * 100 - total_cost
+            payment_coins["copper"] += change
+            return payment_coins, True
+    elif denomination == "copper":
+        if payment_coins["copper"] >= total_cost:
+            payment_coins["copper"] -= total_cost
+            return payment_coins, True
+
+    return payment_coins, False
 
 
 def visit_market(

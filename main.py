@@ -49,6 +49,6 @@ print(
 )
 ##testing zone below
 visit_market(wagon, player["location_dictionary"])
-print(wagon["cart"]["copper"])
-print(wagon["cart"]["silver"])
-print(wagon["cart"]["gold"])
+print("Copper:  " + str(wagon["cart"]["copper"]))
+print("Silver:  " + str(wagon["cart"]["silver"]))
+print("Gold:  " + str(wagon["cart"]["gold"]))
