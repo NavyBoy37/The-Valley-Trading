@@ -1,8 +1,8 @@
-Town List
-    -Feldor
-    -Crankston
+About the Protagonist:
+"  Instead of the player role playing a unique individual, the player will be guiding someone who already has a story,
+but the story will be slowly revealed over the course of the game.  You learn more about the protagonist and you want to learn more as you go."
 
-Each town has a function and the function is to update prices.
+
 
 The main mover of price will be supply in one town relative to another.
 
@@ -16,6 +16,8 @@ Variables to consider
     This is meant to be a slow process which can be easily outran by traveling to and from locations.  
     The real mover of markets is going to be supply side, which is a different matter to consider.
     -City initializations need to consider distance relative to one another in their calulations.  Maybe price normalization can be stronger the closer cities are together.
+    -On DISTANCE again, maybe it could be measured in days of journeying by different roads.  A flat calculation doesn't really make much sense if there are multiple ways to get there.
+    Maybe a more elaborate route planner is necessary.
 
 Supply Variables
     -Jobs(industry specific.  This opens the door for meta data regarding wages for transferrable skills.  Iron and Coal miners are similar and might share a workforce.)
