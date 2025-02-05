@@ -184,9 +184,9 @@ def visit_market(
 ):  # input: wagon dictionary, city dictionary, Output: wagon dictionary
     while True:
         market = city
-        corn_price = Price_Calculator(market, "corn")
+        Price_Calculator(market, "corn")
         print("1.  Corn: " + Money_Converter(market["corn"]["moving_price"]))
-        iron_ore_price = Price_Calculator(market, "iron_ore")
+        Price_Calculator(market, "iron_ore")
         print("2.  Iron Ore: " + Money_Converter(market["iron_ore"]["moving_price"]))
         print("3.  Go back")
         action = input()
