@@ -20,7 +20,7 @@ def Wagon_Initialization():
 
 def Feldor_Initialization():  # input: None, Output:  Feldor Dictionary
     feldor = {
-        "name": "Crankston",
+        "name": "Feldor",
         "exchange_fees": {
             "cs": 1,
             "sg": 1,

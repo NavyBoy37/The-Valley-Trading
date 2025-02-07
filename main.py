@@ -3,9 +3,9 @@ Pull a random one from the list each time they enter the city.  This will be the
 
 """TODO:   Expand main.py to include a loop that allows the player to visit different cities and interact with the market.
 """
-
+from travel_functions import travel
 import time
-from basic_town_functions import visit_market, visit_money_exchange
+from market_functions import visit_market, visit_money_exchange
 from initial_generation import (
     Feldor_Initialization,
     Crankston_Initialization,
@@ -15,21 +15,20 @@ from initial_generation import (
     Wagon_Initialization,
     Player_Initialization,
 )
-from running_functions import Map_Total_Supplies, Price_Calculator
 
 
-cities = [
+cities_idx = [  # this exists to pass through each game function so that data gets updated and carried forward
     Feldor_Initialization(),
     Crankston_Initialization(),
     Tetra_Tower_Initialization(),
     Cabella_Initialization(),
     Foyella_Initialization(),
 ]
-Feldor = cities[0]
-Crankston = cities[1]
-Tetra_Tower = cities[2]
-Cabella = cities[3]
-Foyella = cities[4]
+Feldor = cities_idx[0]
+Crankston = cities_idx[1]
+Tetra_Tower = cities_idx[2]
+Cabella = cities_idx[3]
+Foyella = cities_idx[4]
 
 """Goods Guide
 corn
@@ -51,8 +50,10 @@ while True:
         + " silver, you can finally start your journey.  You set your sights on the horizon."
     )
     ##testing zone below
-    visit_money_exchange(wagon, player["city"])
+    visit_market(wagon, player["city"])
+    travel(player, cities_idx)
     visit_market(wagon, player["city"])
     print("Copper:  " + str(wagon["cart"]["copper"]))
     print("Silver:  " + str(wagon["cart"]["silver"]))
     print("Gold:  " + str(wagon["cart"]["gold"]))
+    break
