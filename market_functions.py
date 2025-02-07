@@ -6,19 +6,23 @@ def display_coins(coins):  # TIED TO market_interact()
     return f"{coins['gold']}g {coins['silver']}s {coins['copper']}c"
 
 
-def market_interact(market, wagon, item, amount):
+def market_interact(market, wagon, item, amount, cities_idx):
     if amount == 0:
         print("Please enter a non-zero amount")
-        return wagon
+        return wagon, cities_idx
 
     cart = wagon["cart"]
+
+    # Get city index for updating
+    city_index = next(
+        i for i, city in enumerate(cities_idx) if city["name"] == market["name"]
+    )
 
     if amount > 0:  # Buying
         if amount > market[item]["supply"]:
             print(f"The market doesn't have enough {item} in stock")
-            return wagon
+            return wagon, cities_idx
 
-        # Get raw price per unit
         unit_price = {
             "gold": market[item]["moving_price"] // 1000,
             "silver": (market[item]["moving_price"] % 1000) // 100,
@@ -36,35 +40,32 @@ def market_interact(market, wagon, item, amount):
         choice = input()
 
         if choice == "4":
-            return wagon
+            return wagon, cities_idx
 
         denomination = {"1": "gold", "2": "silver", "3": "copper"}[choice]
 
-        # Let player handle the math - just try to pay with what they chose
         result_coins, success = pay_with_denomination(
             unit_price, cart, denomination, amount
         )
         if not success:
             print(f"Insufficient {denomination} pieces")
-            return wagon
+            return wagon, cities_idx
 
         cart = result_coins
         market[item]["supply"] -= amount
+        cities_idx[city_index][item]["supply"] -= amount
         print(f"You bought {amount} {item}")
 
     elif amount < 0:  # Selling
         sell_amount = abs(amount)
-
-        # Calculate raw profit in copper pieces
         profit = {"copper": market[item]["moving_price"] * sell_amount}
-
-        # Add profit as copper pieces - let player convert later if desired
         cart["copper"] += profit["copper"]
         market[item]["supply"] += sell_amount
+        cities_idx[city_index][item]["supply"] += sell_amount
         print(f"You sold {sell_amount} {item} for {profit['copper']} copper pieces")
 
     wagon["cart"] = cart
-    return wagon
+    return wagon, cities_idx
 
 
 def visit_money_exchange(wagon, city):
@@ -179,9 +180,7 @@ def pay_with_denomination(cost_in_coins, payment_coins, denomination, amount):
     return payment_coins, False
 
 
-def visit_market(
-    wagon, city
-):  # input: wagon dictionary, city dictionary, Output: wagon dictionary
+def visit_market(wagon, city, cities_idx):
     while True:
         market = city
         Price_Calculator(market, "corn")
@@ -191,17 +190,19 @@ def visit_market(
         print("3.  Go back")
         action = input()
 
-        if action == "1":  # for corn
+        if action == "1":
             print("Amount to trade?")
             item = "corn"
             amount = int(input())
-            market_interact(market, wagon, item, amount)
+            wagon, cities_idx = market_interact(market, wagon, item, amount, cities_idx)
 
-        elif action == "2":  # for iron ore
+        elif action == "2":
             print("Amount to trade?")
             item = "iron_ore"
             amount = int(input())
-            market_interact(market, wagon, item, amount)
+            wagon, cities_idx = market_interact(market, wagon, item, amount, cities_idx)
 
         elif action == "3":
             break
+
+    return wagon, cities_idx

@@ -24,11 +24,7 @@ cities_idx = [  # this exists to pass through each game function so that data ge
     Cabella_Initialization(),
     Foyella_Initialization(),
 ]
-Feldor = cities_idx[0]
-Crankston = cities_idx[1]
-Tetra_Tower = cities_idx[2]
-Cabella = cities_idx[3]
-Foyella = cities_idx[4]
+
 
 """Goods Guide
 corn
@@ -50,9 +46,9 @@ while True:
         + " silver, you can finally start your journey.  You set your sights on the horizon."
     )
     ##testing zone below
-    visit_market(wagon, player["city"])
-    travel(player, cities_idx)
-    visit_market(wagon, player["city"])
+    wagon, cities_idx = visit_market(wagon, player["city"], cities_idx)
+    player = travel(player, cities_idx)
+    wagon, cities_idx = visit_market(wagon, player["city"], cities_idx)
     print("Copper:  " + str(wagon["cart"]["copper"]))
     print("Silver:  " + str(wagon["cart"]["silver"]))
     print("Gold:  " + str(wagon["cart"]["gold"]))
