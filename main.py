@@ -13,17 +13,27 @@ from initial_generation import (
     Tetra_Tower_Initialization,
     Cabella_Initialization,
     Foyella_Initialization,
+    Hardrock_Initialization,
+    Caralo_Initialization,
+    Silter_Initialization,
+    Ratherberg_Initialization,
+    Tobunia_Initialization,
     Wagon_Initialization,
     Player_Initialization,
 )
 
 
 cities_idx = [  # this exists to pass through each game function so that data gets updated and carried forward
-    Feldor_Initialization(),
-    Crankston_Initialization(),
-    Tetra_Tower_Initialization(),
-    Cabella_Initialization(),
-    Foyella_Initialization(),
+    Feldor_Initialization(),  # 0
+    Crankston_Initialization(),  # 1
+    Tetra_Tower_Initialization(),  # 2
+    Cabella_Initialization(),  # 3
+    Foyella_Initialization(),  # 4
+    Caralo_Initialization(),  # 5
+    Hardrock_Initialization(),  # 6
+    Silter_Initialization(),  # 7
+    Ratherberg_Initialization(),  # 8
+    Tobunia_Initialization(),  # 9
 ]
 
 
@@ -34,7 +44,7 @@ iron_ore
 """
 player = Player_Initialization()
 wagon = Wagon_Initialization()
-player["city"] = Feldor_Initialization()  # temp
+player["city"] = cities_idx[0]  # temp
 # Game Intro Section
 print(
     "You finally did it... After years of hard work, you have enough silver to buy a cart."
@@ -63,6 +73,6 @@ while True:
         wagon, cities_idx = visit_market(wagon, player["city"], cities_idx)
     if choice == "3":
         spcr()
-        visit_money_exchange(wagon, player["city"])
+        wagon = visit_money_exchange(wagon, player["city"])
     if choice == "9":
         break

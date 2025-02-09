@@ -54,12 +54,18 @@ def market_interact(market, wagon, item, amount, cities_idx):
         cart = result_coins
         market[item]["supply"] -= amount
         cities_idx[city_index][item]["supply"] -= amount
+        cart[item] += amount  # Add this line
         print(f"You bought {amount} {item}")
 
     elif amount < 0:  # Selling
         sell_amount = abs(amount)
+        if cart[item] < sell_amount:  # Add this check
+            print(f"You don't have enough {item} to sell")
+            return wagon, cities_idx
+
         profit = {"copper": market[item]["moving_price"] * sell_amount}
         cart["copper"] += profit["copper"]
+        cart[item] -= sell_amount  # Add this line
         market[item]["supply"] += sell_amount
         cities_idx[city_index][item]["supply"] += sell_amount
         print(f"You sold {sell_amount} {item} for {profit['copper']} copper pieces")

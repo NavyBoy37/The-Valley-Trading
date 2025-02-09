@@ -1,3 +1,4 @@
+import csv
 import random
 
 
@@ -13,7 +14,13 @@ def Wagon_Initialization():
     wagon = {
         "name": {None},
         "horse": {None},
-        "cart": {"gold": 0, "silver": random.randint(20, 80), "copper": 0},
+        "cart": {
+            "gold": 0,
+            "silver": random.randint(20, 80),
+            "copper": 0,
+            "corn": 0,
+            "iron_ore": 0,
+        },
     }
     return wagon
 
@@ -21,7 +28,7 @@ def Wagon_Initialization():
 def Feldor_Initialization():  # input: None, Output:  Feldor Dictionary
     feldor = {
         "name": "Feldor",
-        "intro_text": [None],
+        "intro_text": [],
         "exchange_fees": {
             "cs": 1,
             "sg": 1,
@@ -41,13 +48,18 @@ def Feldor_Initialization():  # input: None, Output:  Feldor Dictionary
             # moving_price: ...
         },
     }
+    # loads intro text into city dictionary
+    with open("filler_text.csv", "r") as file:
+        csv_reader = csv.DictReader(file)
+        for row in csv_reader:
+            feldor["intro_text"] = row["feldor_intro"]
     return feldor
 
 
 def Crankston_Initialization():  # input: None, Output:  Crankston Dictionary
     crankston = {
         "name": "Crankston",
-        "intro_text": [None],
+        "intro_text": [],
         "exchange_fees": {
             "cs": 1,
             "sg": 1,
@@ -67,13 +79,19 @@ def Crankston_Initialization():  # input: None, Output:  Crankston Dictionary
             # moving_price: ...
         },
     }
+    # loads intro text into city dictionary
+    with open("filler_text.csv", "r") as file:
+        csv_reader = csv.DictReader(file)
+        for row in csv_reader:
+            crankston["intro_text"].append(row["crankston_intro"])
+
     return crankston
 
 
 def Tetra_Tower_Initialization():  # input: None, Output:  Tetra Tower Dictionary
     tetra_tower = {
         "name": "Tetra Tower",
-        "intro_text": [None],
+        "intro_text": [],
         "exchange_fees": {
             "cs": 1,
             "sg": 1,
@@ -93,13 +111,18 @@ def Tetra_Tower_Initialization():  # input: None, Output:  Tetra Tower Dictionar
             # moving_price: ...
         },
     }
+    # loads intro text into city dictionary
+    with open("filler_text.csv", "r") as file:
+        csv_reader = csv.DictReader(file)
+        for row in csv_reader:
+            tetra_tower["intro_text"] = row["tetra_tower_intro"]
     return tetra_tower
 
 
 def Cabella_Initialization():  # input: None, Output:  Cabella Dictionary
     cabella = {
         "name": "Cabella",
-        "intro_text": [None],
+        "intro_text": [],
         "exchange_fees": {
             "cs": 1,
             "sg": 1,
@@ -119,13 +142,18 @@ def Cabella_Initialization():  # input: None, Output:  Cabella Dictionary
             # moving_price: ...
         },
     }
+    # loads intro text into city dictionary
+    with open("filler_text.csv", "r") as file:
+        csv_reader = csv.DictReader(file)
+        for row in csv_reader:
+            cabella["intro_text"] = row["cabella_intro"]
     return cabella
 
 
 def Foyella_Initialization():  # input: None, Output:  Foyella Dictionary
     foyella = {
         "name": "Foyella",
-        "intro_text": [None],
+        "intro_text": [],
         "exchange_fees": {
             "cs": 1,
             "sg": 1,
@@ -145,4 +173,164 @@ def Foyella_Initialization():  # input: None, Output:  Foyella Dictionary
             # moving_price: ...
         },
     }
+    # loads intro text into city dictionary
+    with open("filler_text.csv", "r") as file:
+        csv_reader = csv.DictReader(file)
+        for row in csv_reader:
+            foyella["intro_text"] = row["foyella_intro"]
     return foyella
+
+
+def Hardrock_Initialization():  # input: None, Output:  Hardrock Dictionary
+    hardrock = {
+        "name": "Hardrock",
+        "intro_text": [],
+        "exchange_fees": {
+            "cs": 1,
+            "sg": 1,
+            "gs": 1,
+            "sc": 1,
+        },
+        "corn": {
+            "supply": random.randint(1000, 1700),
+            "base_price": 10,
+            "variance": 0.1,
+            # moving_price: ...
+        },
+        "iron_ore": {
+            "supply": random.randint(0, 500),
+            "base_price": 100,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+    }
+    # loads intro text into city dictionary
+    with open("filler_text.csv", "r") as file:
+        csv_reader = csv.DictReader(file)
+        for row in csv_reader:
+            hardrock["intro_text"] = row["hardrock_intro"]
+    return hardrock
+
+
+def Caralo_Initialization():  # input: None, Output:  Caralo Dictionary
+    caralo = {
+        "name": "Caralo",
+        "intro_text": [],
+        "exchange_fees": {
+            "cs": 1,
+            "sg": 1,
+            "gs": 1,
+            "sc": 1,
+        },
+        "corn": {
+            "supply": random.randint(1000, 1700),
+            "base_price": 10,
+            "variance": 0.1,
+            # moving_price: ...
+        },
+        "iron_ore": {
+            "supply": random.randint(0, 500),
+            "base_price": 100,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+    }
+    # loads intro text into city dictionary
+    with open("filler_text.csv", "r") as file:
+        csv_reader = csv.DictReader(file)
+        for row in csv_reader:
+            caralo["intro_text"] = row["caralo_intro"]
+    return caralo
+
+
+def Silter_Initialization():  # input: None, Output:  Silter Dictionary
+    silter = {
+        "name": "Silter",
+        "intro_text": [],
+        "exchange_fees": {
+            "cs": 1,
+            "sg": 1,
+            "gs": 1,
+            "sc": 1,
+        },
+        "corn": {
+            "supply": random.randint(1000, 1700),
+            "base_price": 10,
+            "variance": 0.1,
+            # moving_price: ...
+        },
+        "iron_ore": {
+            "supply": random.randint(0, 500),
+            "base_price": 100,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+    }
+    # loads intro text into city dictionary
+    with open("filler_text.csv", "r") as file:
+        csv_reader = csv.DictReader(file)
+        for row in csv_reader:
+            silter["intro_text"] = row["silter_intro"]
+    return silter
+
+
+def Ratherberg_Initialization():  # input: None, Output:  Ratherberg Dictionary
+    ratherberg = {
+        "name": "Ratherberg",
+        "intro_text": [],
+        "exchange_fees": {
+            "cs": 1,
+            "sg": 1,
+            "gs": 1,
+            "sc": 1,
+        },
+        "corn": {
+            "supply": random.randint(1000, 1700),
+            "base_price": 10,
+            "variance": 0.1,
+            # moving_price: ...
+        },
+        "iron_ore": {
+            "supply": random.randint(0, 500),
+            "base_price": 100,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+    }
+    # loads intro text into city dictionary
+    with open("filler_text.csv", "r") as file:
+        csv_reader = csv.DictReader(file)
+        for row in csv_reader:
+            ratherberg["intro_text"] = row["ratherberg_intro"]
+    return ratherberg
+
+
+def Tobunia_Initialization():  # input: None, Output:  Tobunia Dictionary
+    tobunia = {
+        "name": "Tobunia",
+        "intro_text": [],
+        "exchange_fees": {
+            "cs": 1,
+            "sg": 1,
+            "gs": 1,
+            "sc": 1,
+        },
+        "corn": {
+            "supply": random.randint(1000, 1700),
+            "base_price": 10,
+            "variance": 0.1,
+            # moving_price: ...
+        },
+        "iron_ore": {
+            "supply": random.randint(0, 500),
+            "base_price": 100,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+    }
+    # loads intro text into city dictionary
+    with open("filler_text.csv", "r") as file:
+        csv_reader = csv.DictReader(file)
+        for row in csv_reader:
+            tobunia["intro_text"] = row["tobunia_intro"]
+    return tobunia
