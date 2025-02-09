@@ -58,13 +58,14 @@ print(
 
 # Main Loop Section
 while True:
-    spcr()
-    print("You are currently in " + player["city"]["name"])
+
+    print("Location:  " + player["city"]["name"])
     print("1. Travel")
     print("2. Visit Market")
     print("3. Visit Money Exchange")
     print("9.  Quit Game")
     choice = str(input())
+
     if choice == "1":
         spcr()
         player = travel(player, cities_idx)

@@ -1,4 +1,5 @@
 import random
+from running_functions import spcr
 
 # cities_idx helper
 # 0 Feldor
@@ -25,10 +26,10 @@ def travel(
         print("4. Hardrock")
         print("5. Exit")
         choice = int(input())
+        spcr()
         if choice == 1:
             # crankston
             player["city"] = cities_idx[1]
-            print(player["city"])  # debuggin
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Crankston.")
             return player
@@ -59,6 +60,7 @@ def travel(
         print("2. Feldor")
         print("3. Exit")
         choice = int(input())
+        spcr()
         if choice == 1:
             # tetra tower
             player["city"] = cities_idx[2]
@@ -79,6 +81,7 @@ def travel(
         print("1. Crankston")
         print("2. Exit")
         choice = int(input())
+        spcr()
         if choice == 1:
             # crankston
             player["city"] = cities_idx[1]
@@ -93,6 +96,7 @@ def travel(
         print("2. Caralo")
         print("3. Exit")
         choice = int(input())
+        spcr()
         if choice == 1:
             # feldor
             player["city"] = cities_idx[0]
@@ -113,6 +117,7 @@ def travel(
         print("2. Hardrock")
         print("3. Exit")
         choice = int(input())
+        spcr()
         if choice == 1:
             # Cebella
             player["city"] = cities_idx[3]
@@ -134,6 +139,7 @@ def travel(
         print("3. Caralo")
         print("4. Exit")
         choice = int(input())
+        spcr()
         if choice == 1:
             # Foyella
             player["city"] = cities_idx[4]
@@ -161,6 +167,7 @@ def travel(
         print("3. Cebella")
         print("4. Exit")
         choice = int(input())
+        spcr()
         if choice == 1:
             # Silter
             player["city"] = cities_idx[7]
@@ -187,6 +194,7 @@ def travel(
         print("3. Foyella")
         print("4. Exit")
         choice = int(input())
+        spcr()
         if choice == 1:
             # Tobunia
             player["city"] = cities_idx[9]
@@ -212,6 +220,7 @@ def travel(
         print("2. Silter")
         print("3. Exit")
         choice = int(input())
+        spcr()
         if choice == 1:
             # Ratherberg
             player["city"] = cities_idx[8]
@@ -232,6 +241,7 @@ def travel(
         print("2. Tobunia")
         print("3. Exit")
         choice = int(input())
+        spcr()
         if choice == 1:
             # Silter
             player["city"] = cities_idx[7]

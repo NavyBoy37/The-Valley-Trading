@@ -127,6 +127,7 @@ def visit_money_exchange(wagon, city):
             )
 
         elif choice == "5":
+            spcr()
             break
         else:
             spcr()
@@ -214,6 +215,7 @@ def visit_market(wagon, city, cities_idx):
             wagon, cities_idx = market_interact(market, wagon, item, amount, cities_idx)
 
         elif action == "3":
+            spcr()
             break
 
     return wagon, cities_idx
