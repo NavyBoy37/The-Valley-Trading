@@ -1,4 +1,4 @@
-from running_functions import Money_Converter, Price_Calculator
+from running_functions import Money_Converter, Price_Calculator, spcr
 
 
 def display_coins(coins):  # TIED TO market_interact()
@@ -28,7 +28,7 @@ def market_interact(market, wagon, item, amount, cities_idx):
             "silver": (market[item]["moving_price"] % 1000) // 100,
             "copper": market[item]["moving_price"] % 100,
         }
-
+        spcr()
         print(f"Cost per unit: {display_coins(unit_price)}")
         print(f"Current funds: {display_coins(cart)}")
         print("Choose payment method:")
@@ -43,7 +43,7 @@ def market_interact(market, wagon, item, amount, cities_idx):
             return wagon, cities_idx
 
         denomination = {"1": "gold", "2": "silver", "3": "copper"}[choice]
-
+        spcr()
         result_coins, success = pay_with_denomination(
             unit_price, cart, denomination, amount
         )
@@ -84,6 +84,7 @@ def visit_money_exchange(wagon, city):
         choice = input()
 
         if choice == "1" and wagon["cart"]["copper"] >= (100 + exchange_fees["cs"]):
+            spcr()
             wagon["cart"]["copper"] -= 100 + exchange_fees["cs"]
             wagon["cart"]["silver"] += 1
             print(
@@ -91,6 +92,7 @@ def visit_money_exchange(wagon, city):
             )
 
         elif choice == "2" and wagon["cart"]["silver"] >= (10 + exchange_fees["sg"]):
+            spcr()
             wagon["cart"]["silver"] -= 10 + exchange_fees["sg"]
             wagon["cart"]["gold"] += 1
             print(
@@ -98,6 +100,7 @@ def visit_money_exchange(wagon, city):
             )
 
         elif choice == "3" and wagon["cart"]["gold"] >= 1:
+            spcr()
             if wagon["cart"]["silver"] >= exchange_fees["gs"]:
                 wagon["cart"]["gold"] -= 1
                 wagon["cart"]["silver"] += 10 - exchange_fees["gs"]
@@ -110,6 +113,7 @@ def visit_money_exchange(wagon, city):
                 )
 
         elif choice == "4" and wagon["cart"]["silver"] >= 1:
+            spcr()
             wagon["cart"]["silver"] -= 1
             wagon["cart"]["copper"] += 100 - exchange_fees["sc"]
             print(
@@ -119,6 +123,7 @@ def visit_money_exchange(wagon, city):
         elif choice == "5":
             break
         else:
+            spcr()
             print("Invalid choice or insufficient coins")
 
     return wagon

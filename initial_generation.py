@@ -21,6 +21,7 @@ def Wagon_Initialization():
 def Feldor_Initialization():  # input: None, Output:  Feldor Dictionary
     feldor = {
         "name": "Feldor",
+        "intro_text": [None],
         "exchange_fees": {
             "cs": 1,
             "sg": 1,
@@ -46,6 +47,7 @@ def Feldor_Initialization():  # input: None, Output:  Feldor Dictionary
 def Crankston_Initialization():  # input: None, Output:  Crankston Dictionary
     crankston = {
         "name": "Crankston",
+        "intro_text": [None],
         "exchange_fees": {
             "cs": 1,
             "sg": 1,
@@ -71,6 +73,7 @@ def Crankston_Initialization():  # input: None, Output:  Crankston Dictionary
 def Tetra_Tower_Initialization():  # input: None, Output:  Tetra Tower Dictionary
     tetra_tower = {
         "name": "Tetra Tower",
+        "intro_text": [None],
         "exchange_fees": {
             "cs": 1,
             "sg": 1,
@@ -96,6 +99,7 @@ def Tetra_Tower_Initialization():  # input: None, Output:  Tetra Tower Dictionar
 def Cabella_Initialization():  # input: None, Output:  Cabella Dictionary
     cabella = {
         "name": "Cabella",
+        "intro_text": [None],
         "exchange_fees": {
             "cs": 1,
             "sg": 1,
@@ -121,6 +125,7 @@ def Cabella_Initialization():  # input: None, Output:  Cabella Dictionary
 def Foyella_Initialization():  # input: None, Output:  Foyella Dictionary
     foyella = {
         "name": "Foyella",
+        "intro_text": [None],
         "exchange_fees": {
             "cs": 1,
             "sg": 1,

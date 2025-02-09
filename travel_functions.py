@@ -2,7 +2,6 @@ def travel(
     player, cities_idx
 ):  # input: player dictionary, cities_idx list output: player dictionary
     """Allow player to travel between cities"""
-    print(f"\nYou are currently in {player['city']['name']}.")
     print(f"Where would you like to go?")
     print("1. Feldor")
     print("2. Crankston")

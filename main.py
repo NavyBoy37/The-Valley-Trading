@@ -39,7 +39,6 @@ player["city"] = Feldor_Initialization()  # temp
 print(
     "You finally did it... After years of hard work, you have enough silver to buy a cart."
 )
-time.sleep(2)
 print(". . .")
 print(
     "It's not much, but it's got wheels.  With "
@@ -53,11 +52,17 @@ while True:
     print("You are currently in " + player["city"]["name"])
     print("1. Travel")
     print("2. Visit Market")
+    print("3. Visit Money Exchange")
     print("9.  Quit Game")
     choice = str(input())
     if choice == "1":
+        spcr()
         player = travel(player, cities_idx)
     if choice == "2":
+        spcr()
         wagon, cities_idx = visit_market(wagon, player["city"], cities_idx)
+    if choice == "3":
+        spcr()
+        visit_money_exchange(wagon, player["city"])
     if choice == "9":
         break
