@@ -50,3 +50,7 @@ def Money_Converter(
     silver = (integer % 1000) // 100
     copper = integer % 100
     return f"{gold}g {silver}s {copper}c"
+
+
+def spcr(width=50, pattern="="):
+    print("\n" + pattern * width + "\n")
