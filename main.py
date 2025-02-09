@@ -1,8 +1,3 @@
-""" TODO:  Add lists to each city dictionary for texts to be shown to the player as they enter for the first time.  
-Pull a random one from the list each time they enter the city.  This will be the city's "flavor text.  Specific unique events can come later"""
-
-"""TODO:   Expand main.py to include a loop that allows the player to visit different cities and interact with the market.
-"""
 from travel_functions import travel
 from running_functions import spcr
 import time
