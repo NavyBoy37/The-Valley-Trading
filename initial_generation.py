@@ -52,7 +52,7 @@ def Feldor_Initialization():  # input: None, Output:  Feldor Dictionary
     with open("filler_text.csv", "r") as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
-            feldor["intro_text"] = row["feldor_intro"]
+            feldor["intro_text"].append(row["feldor_intro"])
     return feldor
 
 
@@ -115,7 +115,7 @@ def Tetra_Tower_Initialization():  # input: None, Output:  Tetra Tower Dictionar
     with open("filler_text.csv", "r") as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
-            tetra_tower["intro_text"] = row["tetra_tower_intro"]
+            tetra_tower["intro_text"].append(row["tetra_tower_intro"])
     return tetra_tower
 
 
@@ -146,7 +146,7 @@ def Cabella_Initialization():  # input: None, Output:  Cabella Dictionary
     with open("filler_text.csv", "r") as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
-            cabella["intro_text"] = row["cabella_intro"]
+            cabella["intro_text"].append(row["cabella_intro"])
     return cabella
 
 
@@ -177,13 +177,14 @@ def Foyella_Initialization():  # input: None, Output:  Foyella Dictionary
     with open("filler_text.csv", "r") as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
-            foyella["intro_text"] = row["foyella_intro"]
+            foyella["intro_text"].append(row["foyella_intro"])
     return foyella
 
 
 def Hardrock_Initialization():  # input: None, Output:  Hardrock Dictionary
     hardrock = {
         "name": "Hardrock",
+        "intro_text": [],
         "exchange_fees": {
             "cs": 1,
             "sg": 1,
@@ -207,7 +208,7 @@ def Hardrock_Initialization():  # input: None, Output:  Hardrock Dictionary
     with open("filler_text.csv", "r") as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
-            hardrock["intro_text"] = row["hardrock_intro"]
+            hardrock["intro_text"].append(row["hardrock_intro"])
     return hardrock
 
 
@@ -238,7 +239,7 @@ def Caralo_Initialization():  # input: None, Output:  Caralo Dictionary
     with open("filler_text.csv", "r") as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
-            caralo["intro_text"] = row["caralo_intro"]
+            caralo["intro_text"].append(row["caralo_intro"])
     return caralo
 
 
@@ -269,7 +270,7 @@ def Silter_Initialization():  # input: None, Output:  Silter Dictionary
     with open("filler_text.csv", "r") as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
-            silter["intro_text"] = row["silter_intro"]
+            silter["intro_text"].append(row["silter_intro"])
     return silter
 
 
@@ -300,7 +301,7 @@ def Ratherberg_Initialization():  # input: None, Output:  Ratherberg Dictionary
     with open("filler_text.csv", "r") as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
-            ratherberg["intro_text"] = row["ratherberg_intro"]
+            ratherberg["intro_text"].append(row["ratherberg_intro"])
     return ratherberg
 
 
@@ -331,5 +332,5 @@ def Tobunia_Initialization():  # input: None, Output:  Tobunia Dictionary
     with open("filler_text.csv", "r") as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
-            tobunia["intro_text"] = row["tobunia_intro"]
+            tobunia["intro_text"].append(row["tobunia_intro"])
     return tobunia
