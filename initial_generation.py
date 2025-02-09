@@ -184,7 +184,6 @@ def Foyella_Initialization():  # input: None, Output:  Foyella Dictionary
 def Hardrock_Initialization():  # input: None, Output:  Hardrock Dictionary
     hardrock = {
         "name": "Hardrock",
-        "intro_text": [],
         "exchange_fees": {
             "cs": 1,
             "sg": 1,

@@ -194,9 +194,9 @@ def pay_with_denomination(cost_in_coins, payment_coins, denomination, amount):
 def visit_market(wagon, city, cities_idx):
     while True:
         market = city
-        Price_Calculator(market, "corn")
+        Price_Calculator(market, "corn", cities_idx)
         print("1.  Corn: " + Money_Converter(market["corn"]["moving_price"]))
-        Price_Calculator(market, "iron_ore")
+        Price_Calculator(market, "iron_ore", cities_idx)
         print("2.  Iron Ore: " + Money_Converter(market["iron_ore"]["moving_price"]))
         print("3.  Go back")
         action = input()
