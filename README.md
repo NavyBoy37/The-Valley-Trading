@@ -1,1 +1,1 @@
-A game about being a traveling trader who dreams of one day settling down.  Inspired by Spice and Wolf
+Just under the Stardrop mountains, a young man named Mute lives out his dream as a traveling merchant.  And once he's done ferrying others' destinies, maybe he'll find his own.  Inspired by Spice and Wolf
