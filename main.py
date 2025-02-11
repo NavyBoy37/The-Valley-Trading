@@ -1,7 +1,7 @@
 from travel_functions import travel
 from running_functions import spcr
-import time
-from market_functions import visit_market, visit_money_exchange
+from market_functions import visit_market
+from exchange_functions import visit_money_exchange
 from initial_generation import (
     Feldor_Initialization,
     Crankston_Initialization,

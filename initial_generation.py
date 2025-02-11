@@ -26,6 +26,14 @@ def Wagon_Initialization():
 
 
 def Feldor_Initialization():  # input: None, Output:  Feldor Dictionary
+    """
+    This comment will refer to all city initialization functions below.
+    This function is run in a position in the cities_idx list in main.py.  Cities_idx houses
+    the perpetual and changing city information in the game.  The feldor dictionary houses
+    name, a sublist of intro_text, money conversion fees, product base prices and supplies and variance.
+    Each initialization also loads intro text from a csv into the sublist in the dictionary.
+    I expect to use the .csv list loading method for many future purposes.
+    """
     feldor = {
         "name": "Feldor",
         "intro_text": [],

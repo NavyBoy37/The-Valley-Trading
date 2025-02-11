@@ -1,7 +1,12 @@
 import random
 from running_functions import spcr
 
-# cities_idx helper
+"""
+cities_idx helper
+These numbers are positions in the cities_idx list
+where game data is stored during run time.  initial_generation.py
+generates city dictionaries into that list in main.py
+"""
 # 0 Feldor
 # 1 Crankston
 # 2 Tetra Tower
@@ -17,7 +22,13 @@ from running_functions import spcr
 def travel(
     player, cities_idx
 ):  # input: player dictionary, cities_idx list output: player dictionary
-    """Allow player to travel between cities"""
+    """
+    travel() uses if then statements to build the world map, along with changing
+    the city dictionary in the player dictionary to change location.  Only certain cities
+    are accessible from others.  Adding new cities is tedious right now.  Adding more
+    here requires new initial_generation functions and adding to cities_idx list in main.py
+    for initialization
+    """
     if player["city"] == cities_idx[0]:  # feldor node
         print(f"Where would you like to go?")
         print("1. Crankston")

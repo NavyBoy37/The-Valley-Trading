@@ -1,9 +1,4 @@
-from running_functions import Money_Converter, Price_Calculator, spcr
-
-
-def display_coins(coins):  # TIED TO market_interact()
-    """Display exactly what coins are in possession"""
-    return f"{coins['gold']}g {coins['silver']}s {coins['copper']}c"
+from running_functions import Money_Converter, Price_Calculator, spcr, display_coins
 
 
 def market_interact(market, wagon, item, amount, cities_idx):
@@ -72,9 +67,6 @@ def market_interact(market, wagon, item, amount, cities_idx):
 
     wagon["cart"] = cart
     return wagon, cities_idx
-
-
-def visit_money_exchange(wagon, city):
     """Allow player to convert between coin denominations with city-specific fees"""
     exchange_fees = city["exchange_fees"]
 
