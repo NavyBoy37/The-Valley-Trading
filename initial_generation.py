@@ -6,6 +6,7 @@ ITEM_WEIGHTS = {
     # product weights
     "corn": 10,
     "iron_ore": 50,
+    "pelts": 30,
     # currency weights
     "gold": 1,
     "silver": 1,
@@ -31,6 +32,8 @@ def Wagon_Initialization():
             "copper": 0,
             "corn": 0,
             "iron_ore": 0,
+            "pelts": 0,
+            "gems": 0,
         },
         "capacity": {
             # cart current fullness and capacity
@@ -71,6 +74,18 @@ def Feldor_Initialization():  # input: None, Output:  Feldor Dictionary
             "variance": 0.3,
             # moving_price: ...
         },
+        "pelts": {
+            "supply": random.randint(0, 500),
+            "base_price": 50,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "gems": {
+            "supply": random.randint(0, 200),
+            "base_price": 1000,
+            "variance": 0.3,
+            # moving_price: ...
+        },
     }
     # loads intro text into city dictionary
     with open("filler_text.csv", "r") as file:
@@ -100,6 +115,18 @@ def Crankston_Initialization():  # input: None, Output:  Crankston Dictionary
             "supply": random.randint(500, 1000),
             "variance": 0.3,
             "base_price": 100,
+            # moving_price: ...
+        },
+        "pelts": {
+            "supply": random.randint(0, 500),
+            "base_price": 50,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "gems": {
+            "supply": random.randint(0, 200),
+            "base_price": 1000,
+            "variance": 0.3,
             # moving_price: ...
         },
     }
@@ -134,6 +161,18 @@ def Tetra_Tower_Initialization():  # input: None, Output:  Tetra Tower Dictionar
             "variance": 0.3,
             # moving_price: ...
         },
+        "pelts": {
+            "supply": random.randint(0, 500),
+            "base_price": 50,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "gems": {
+            "supply": random.randint(0, 200),
+            "base_price": 1000,
+            "variance": 0.3,
+            # moving_price: ...
+        },
     }
     # loads intro text into city dictionary
     with open("filler_text.csv", "r") as file:
@@ -162,6 +201,18 @@ def Cabella_Initialization():  # input: None, Output:  Cabella Dictionary
         "iron_ore": {
             "supply": random.randint(130, 452),
             "base_price": 100,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "pelts": {
+            "supply": random.randint(0, 500),
+            "base_price": 50,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "gems": {
+            "supply": random.randint(0, 200),
+            "base_price": 1000,
             "variance": 0.3,
             # moving_price: ...
         },
@@ -196,6 +247,18 @@ def Foyella_Initialization():  # input: None, Output:  Foyella Dictionary
             "base_price": 100,
             # moving_price: ...
         },
+        "pelts": {
+            "supply": random.randint(0, 500),
+            "base_price": 50,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "gems": {
+            "supply": random.randint(0, 200),
+            "base_price": 1000,
+            "variance": 0.3,
+            # moving_price: ...
+        },
     }
     # loads intro text into city dictionary
     with open("filler_text.csv", "r") as file:
@@ -224,6 +287,18 @@ def Hardrock_Initialization():  # input: None, Output:  Hardrock Dictionary
         "iron_ore": {
             "supply": random.randint(0, 500),
             "base_price": 100,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "pelts": {
+            "supply": random.randint(0, 500),
+            "base_price": 50,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "gems": {
+            "supply": random.randint(0, 200),
+            "base_price": 1000,
             "variance": 0.3,
             # moving_price: ...
         },
@@ -258,6 +333,18 @@ def Caralo_Initialization():  # input: None, Output:  Caralo Dictionary
             "variance": 0.3,
             # moving_price: ...
         },
+        "pelts": {
+            "supply": random.randint(0, 500),
+            "base_price": 50,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "gems": {
+            "supply": random.randint(0, 200),
+            "base_price": 1000,
+            "variance": 0.3,
+            # moving_price: ...
+        },
     }
     # loads intro text into city dictionary
     with open("filler_text.csv", "r") as file:
@@ -286,6 +373,18 @@ def Silter_Initialization():  # input: None, Output:  Silter Dictionary
         "iron_ore": {
             "supply": random.randint(0, 500),
             "base_price": 100,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "pelts": {
+            "supply": random.randint(0, 500),
+            "base_price": 50,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "gems": {
+            "supply": random.randint(0, 200),
+            "base_price": 1000,
             "variance": 0.3,
             # moving_price: ...
         },
@@ -320,6 +419,18 @@ def Ratherberg_Initialization():  # input: None, Output:  Ratherberg Dictionary
             "variance": 0.3,
             # moving_price: ...
         },
+        "pelts": {
+            "supply": random.randint(0, 500),
+            "base_price": 50,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "gems": {
+            "supply": random.randint(0, 200),
+            "base_price": 1000,
+            "variance": 0.3,
+            # moving_price: ...
+        },
     }
     # loads intro text into city dictionary
     with open("filler_text.csv", "r") as file:
@@ -348,6 +459,18 @@ def Tobunia_Initialization():  # input: None, Output:  Tobunia Dictionary
         "iron_ore": {
             "supply": random.randint(0, 500),
             "base_price": 100,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "pelts": {
+            "supply": random.randint(0, 500),
+            "base_price": 50,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "gems": {
+            "supply": random.randint(0, 200),
+            "base_price": 1000,
             "variance": 0.3,
             # moving_price: ...
         },

@@ -1,3 +1,9 @@
+"""TODO:  Add additional products to trade"""
+
+"""TODO:  Add first story point/quest line"""
+"""TODO:  Add food requirements for player and days/travel system for measurement of distances between cities."""
+"""TODO:  Use above days-to-travel system to calculate new moving prices for products"""
+
 from travel_functions import travel
 from running_functions import spcr
 from market_functions import visit_market
