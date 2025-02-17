@@ -3,6 +3,7 @@ from running_functions import spcr
 from market_functions import visit_market
 from exchange_functions import visit_money_exchange
 from initial_generation import (
+    ITEM_WEIGHTS,
     Feldor_Initialization,
     Crankston_Initialization,
     Tetra_Tower_Initialization,

@@ -1,6 +1,17 @@
 import csv
 import random
 
+# initializes item weights for cart
+ITEM_WEIGHTS = {
+    # product weights
+    "corn": 10,
+    "iron_ore": 50,
+    # currency weights
+    "gold": 1,
+    "silver": 1,
+    "gold": 1,
+}
+
 
 def Player_Initialization():
     player = {
@@ -20,6 +31,11 @@ def Wagon_Initialization():
             "copper": 0,
             "corn": 0,
             "iron_ore": 0,
+        },
+        "capacity": {
+            # cart current fullness and capacity
+            "max_weight": 1000,
+            "current_weight": 0,
         },
     }
     return wagon

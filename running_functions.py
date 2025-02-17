@@ -42,3 +42,14 @@ def spcr(width=50, pattern="="):
     For UI purposes.  Separates user actions in terminal
     """
     print("\n" + pattern * width + "\n")
+
+
+def calculate_total_weight(cart):
+    """Calculate current cart weight"""
+    from initial_generation import ITEM_WEIGHTS  # Import at top of file
+
+    total_weight = 0
+    for item, amount in cart.items():
+        if item in ITEM_WEIGHTS:  # Check in case of non-weighted items
+            total_weight += ITEM_WEIGHTS[item] * amount
+    return total_weight

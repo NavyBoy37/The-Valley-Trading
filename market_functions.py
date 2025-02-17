@@ -2,6 +2,9 @@ from running_functions import Money_Converter, Price_Calculator, spcr, display_c
 
 
 def market_interact(market, wagon, item, amount, cities_idx):
+    from initial_generation import ITEM_WEIGHTS
+    from running_functions import calculate_total_weight
+
     if amount == 0:
         print("Please enter a non-zero amount")
         return wagon, cities_idx
@@ -14,6 +17,13 @@ def market_interact(market, wagon, item, amount, cities_idx):
     )
 
     if amount > 0:  # Buying
+        # Check weight capacity
+        new_weight = calculate_total_weight(cart) + (ITEM_WEIGHTS[item] * amount)
+        if new_weight > wagon["capacity"]["max_weight"]:
+            print(
+                f"Cannot carry that much! Would exceed wagon capacity by {new_weight - wagon['capacity']['max_weight']:.2f} pounds"
+            )
+            return wagon, cities_idx
         if amount > market[item]["supply"]:
             print(f"The market doesn't have enough {item} in stock")
             return wagon, cities_idx
@@ -185,7 +195,15 @@ def pay_with_denomination(cost_in_coins, payment_coins, denomination, amount):
 
 
 def visit_market(wagon, city, cities_idx):
+    from running_functions import calculate_total_weight
+
+    print(f"\nMarket - {city['name']}")
     while True:
+        current_weight = calculate_total_weight(wagon["cart"])
+        print(f"Current funds: {display_coins(wagon['cart'])}")
+        print(
+            f"Cart weight: {current_weight:.2f} / {wagon['capacity']['max_weight']} pounds"
+        )
         market = city
         Price_Calculator(market, "corn", cities_idx)
         print("1.  Corn: " + Money_Converter(market["corn"]["moving_price"]))
