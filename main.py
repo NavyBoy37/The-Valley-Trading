@@ -4,6 +4,7 @@
 """TODO:  Add food requirements for player and days/travel system for measurement of distances between cities."""
 """TODO:  Use above days-to-travel system to calculate new moving prices for products"""
 """TODO:  """
+"""TODO:  Verify gems have actual weight in the cart"""
 import sys
 from travel_functions import travel
 from running_functions import spcr

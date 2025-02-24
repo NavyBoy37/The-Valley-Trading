@@ -207,7 +207,7 @@ def visit_market(wagon, city, cities_idx):
         market = city
 
         # Calculate prices for all goods
-        for item in ["corn", "iron_ore", "pelts", "gems"]:
+        for item in ["corn", "iron_ore", "pelts", "gems", "supplies"]:
             Price_Calculator(market, item, cities_idx)
 
         # Display market options
@@ -215,7 +215,10 @@ def visit_market(wagon, city, cities_idx):
         print("2. Iron Ore: " + Money_Converter(market["iron_ore"]["moving_price"]))
         print("3. Pelts: " + Money_Converter(market["pelts"]["moving_price"]))
         print("4. Gems: " + Money_Converter(market["gems"]["moving_price"]))
-        print("5. Go back")
+        print(
+            "5. Travel Supplies: " + Money_Converter(market["supplies"]["moving_price"])
+        )
+        print("6. Go back")
 
         action = input()
 
@@ -242,8 +245,13 @@ def visit_market(wagon, city, cities_idx):
             item = "gems"
             amount = int(input())
             wagon, cities_idx = market_interact(market, wagon, item, amount, cities_idx)
-
         elif action == "5":
+            print("Amount to trade?")
+            item = "supplies"
+            amount = int(input())
+            wagon, cities_idx = market_interact(market, wagon, item, amount, cities_idx)
+
+        elif action == "6":
             spcr()
             break
 

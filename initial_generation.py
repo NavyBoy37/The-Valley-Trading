@@ -7,6 +7,8 @@ ITEM_WEIGHTS = {
     "corn": 10,
     "iron_ore": 50,
     "pelts": 30,
+    "gems": 5,
+    "supplies": 12,
     # currency weights
     "gold": 1,
     "silver": 1,
@@ -54,7 +56,7 @@ def Wagon_Initialization():
         "name": {None},
         "horse": {None},
         "cart": {
-            "gold": 0,
+            "gold": 500,
             "silver": random.randint(20, 80),
             "copper": 0,
             "supplies": 1,
@@ -114,6 +116,12 @@ def Feldor_Initialization():  # input: None, Output:  Feldor Dictionary
             "variance": 0.3,
             # moving_price: ...
         },
+        "supplies": {
+            "supply": random.randint(0, 25000),
+            "base_price": 10,
+            "variance": 0.3,
+            # moving_price: ...
+        },
     }
     # loads intro text into city dictionary
     with open("filler_text.csv", "r") as file:
@@ -154,6 +162,12 @@ def Crankston_Initialization():  # input: None, Output:  Crankston Dictionary
         "gems": {
             "supply": random.randint(0, 200),
             "base_price": 1000,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "supplies": {
+            "supply": random.randint(0, 25000),
+            "base_price": 10,
             "variance": 0.3,
             # moving_price: ...
         },
@@ -201,7 +215,14 @@ def Tetra_Tower_Initialization():  # input: None, Output:  Tetra Tower Dictionar
             "variance": 0.3,
             # moving_price: ...
         },
+        "supplies": {
+            "supply": random.randint(0, 25000),
+            "base_price": 10,
+            "variance": 0.3,
+            # moving_price: ...
+        },
     }
+
     # loads intro text into city dictionary
     with open("filler_text.csv", "r") as file:
         csv_reader = csv.DictReader(file)
@@ -244,7 +265,14 @@ def Cabella_Initialization():  # input: None, Output:  Cabella Dictionary
             "variance": 0.3,
             # moving_price: ...
         },
+        "supplies": {
+            "supply": random.randint(0, 25000),
+            "base_price": 10,
+            "variance": 0.3,
+            # moving_price: ...
+        },
     }
+
     # loads intro text into city dictionary
     with open("filler_text.csv", "r") as file:
         csv_reader = csv.DictReader(file)
@@ -284,6 +312,12 @@ def Foyella_Initialization():  # input: None, Output:  Foyella Dictionary
         "gems": {
             "supply": random.randint(0, 200),
             "base_price": 1000,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "supplies": {
+            "supply": random.randint(0, 25000),
+            "base_price": 10,
             "variance": 0.3,
             # moving_price: ...
         },
@@ -330,6 +364,12 @@ def Hardrock_Initialization():  # input: None, Output:  Hardrock Dictionary
             "variance": 0.3,
             # moving_price: ...
         },
+        "supplies": {
+            "supply": random.randint(0, 25000),
+            "base_price": 10,
+            "variance": 0.3,
+            # moving_price: ...
+        },
     }
     # loads intro text into city dictionary
     with open("filler_text.csv", "r") as file:
@@ -370,6 +410,12 @@ def Caralo_Initialization():  # input: None, Output:  Caralo Dictionary
         "gems": {
             "supply": random.randint(0, 200),
             "base_price": 1000,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "supplies": {
+            "supply": random.randint(0, 25000),
+            "base_price": 10,
             "variance": 0.3,
             # moving_price: ...
         },
@@ -416,6 +462,12 @@ def Silter_Initialization():  # input: None, Output:  Silter Dictionary
             "variance": 0.3,
             # moving_price: ...
         },
+        "supplies": {
+            "supply": random.randint(0, 25000),
+            "base_price": 10,
+            "variance": 0.3,
+            # moving_price: ...
+        },
     }
     # loads intro text into city dictionary
     with open("filler_text.csv", "r") as file:
@@ -459,6 +511,12 @@ def Ratherberg_Initialization():  # input: None, Output:  Ratherberg Dictionary
             "variance": 0.3,
             # moving_price: ...
         },
+        "supplies": {
+            "supply": random.randint(0, 25000),
+            "base_price": 10,
+            "variance": 0.3,
+            # moving_price: ...
+        },
     }
     # loads intro text into city dictionary
     with open("filler_text.csv", "r") as file:
@@ -499,6 +557,12 @@ def Tobunia_Initialization():  # input: None, Output:  Tobunia Dictionary
         "gems": {
             "supply": random.randint(0, 200),
             "base_price": 1000,
+            "variance": 0.3,
+            # moving_price: ...
+        },
+        "supplies": {
+            "supply": random.randint(0, 25000),
+            "base_price": 10,
             "variance": 0.3,
             # moving_price: ...
         },
