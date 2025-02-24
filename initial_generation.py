@@ -12,6 +12,33 @@ ITEM_WEIGHTS = {
     "silver": 1,
     "gold": 1,
 }
+# initializes length of roads (determined by supplies used)
+ROAD_LENGTHS = {
+    "Road_Feldor_Cabella": 1,
+    "Road_Cabella_Feldor": 1,
+    "Road_Feldor_Foyella": 2,
+    "Road_Foyella_Feldor": 2,
+    "Road_Cabella_Foyella": 3,
+    "Road_Foyella_Cabella": 3,
+    "Road_Feldor_Crankston": 4,
+    "Road_Crankston_Feldor": 4,
+    "Road_Crankston_TetraTower": 5,
+    "Road_TetraTower_Crankston": 5,
+    "Road_Feldor_Hardrock": 6,
+    "Road_Hardrock_Feldor": 6,
+    "Road_Hardrock_Caralo": 7,
+    "Road_Caralo_Hardrock": 7,
+    "Road_Caralo_Cabella": 7,
+    "Road_Cabella_Caralo": 7,
+    "Road_Foyella_Silter": 8,
+    "Road_Silter_Foyella": 8,
+    "Road_Silter_Tobunia": 9,
+    "Road_Tobunia_Silter": 9,
+    "Road_Tobunia_Ratherberg": 10,
+    "Road_Ratherberg_Tobunia": 10,
+    "Road_Ratherberg_Silter": 11,
+    "Road_Silter_Ratherberg": 11,
+}
 
 
 def Player_Initialization():
@@ -30,6 +57,7 @@ def Wagon_Initialization():
             "gold": 0,
             "silver": random.randint(20, 80),
             "copper": 0,
+            "supplies": 100,
             "corn": 0,
             "iron_ore": 0,
             "pelts": 0,
@@ -141,7 +169,7 @@ def Crankston_Initialization():  # input: None, Output:  Crankston Dictionary
 
 def Tetra_Tower_Initialization():  # input: None, Output:  Tetra Tower Dictionary
     tetra_tower = {
-        "name": "Tetra Tower",
+        "name": "TetraTower",
         "intro_text": [],
         "exchange_fees": {
             "cs": 1,

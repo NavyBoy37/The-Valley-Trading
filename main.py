@@ -10,6 +10,7 @@ from market_functions import visit_market
 from exchange_functions import visit_money_exchange
 from initial_generation import (
     ITEM_WEIGHTS,
+    ROAD_LENGTHS,
     Feldor_Initialization,
     Crankston_Initialization,
     Tetra_Tower_Initialization,
@@ -60,7 +61,6 @@ print(
 
 # Main Loop Section
 while True:
-
     print("Location:  " + player["city"]["name"])
     print("1. Travel")
     print("2. Visit Market")
@@ -70,7 +70,7 @@ while True:
 
     if choice == "1":
         spcr()
-        player = travel(player, cities_idx)
+        player, wagon = travel(player, cities_idx, wagon)
     if choice == "2":
         spcr()
         wagon, cities_idx = visit_market(wagon, player["city"], cities_idx)
