@@ -1,10 +1,12 @@
-"""TODO:  Add additional products to trade"""
-
 """TODO:  Add first story point/quest line"""
-"""TODO:  Add food requirements for player and days/travel system for measurement of distances between cities."""
+
 """TODO:  Use above days-to-travel system to calculate new moving prices for products"""
 """TODO:  """
-"""TODO:  Verify gems have actual weight in the cart"""
+"""TODO:  add credit system so you can over extend and risk it for the biscuit"""
+
+"""NOTE ON BALANCING.  VERY HEAVY ITEMS SHOULD BE EXPENSIVE, HEAVY, AND FLUCTUATE WILDLY.  Cheap items should be stable and not move much.
+At the very least Heavy = high variance and light = low variance.  If light has high variance it must be expensive as hell.
+"""
 import sys
 from travel_functions import travel
 from running_functions import spcr

@@ -1,3 +1,15 @@
+Gameplay Ideas
+-Guilds or known associates who can give quests or have special offerings.  With relationships like stardew valley.
+-Property that can be purchased that generates income, or warehouses for storage and things like that
+-Upgrades to cart for weight or horses for speed
+-Add seasons and season specific events
+
+Items to balance
+-supplies used in travel (distance of roads)
+-Storage of cart
+-Weight and supply of goods
+
+
 About the Protagonist:
 "  Instead of the player role playing a unique individual, the player will be guiding someone who already has a story,
 but the story will be slowly revealed over the course of the game.  You learn more about the protagonist and you want to learn more as you go."
