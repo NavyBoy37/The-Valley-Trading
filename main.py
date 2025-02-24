@@ -3,7 +3,8 @@
 """TODO:  Add first story point/quest line"""
 """TODO:  Add food requirements for player and days/travel system for measurement of distances between cities."""
 """TODO:  Use above days-to-travel system to calculate new moving prices for products"""
-
+"""TODO:  """
+import sys
 from travel_functions import travel
 from running_functions import spcr
 from market_functions import visit_market
@@ -61,6 +62,7 @@ print(
 
 # Main Loop Section
 while True:
+
     print("Location:  " + player["city"]["name"])
     print("1. Travel")
     print("2. Visit Market")
@@ -78,4 +80,4 @@ while True:
         spcr()
         wagon = visit_money_exchange(wagon, player["city"])
     if choice == "9":
-        break
+        sys.exit()

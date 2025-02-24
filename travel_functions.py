@@ -44,30 +44,30 @@ def travel(
         if choice == 1:
             # crankston
             player["city"] = cities_idx[1]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Crankston.")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         if choice == 2:
             # cebella
             player["city"] = cities_idx[3]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Cabella.")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         if choice == 3:
             # foyella
             player["city"] = cities_idx[4]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Foyella.")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         if choice == 4:
             # hardrock
             player["city"] = cities_idx[6]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Hardrock")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         else:
             return player, wagon
@@ -82,16 +82,16 @@ def travel(
         if choice == 1:
             # tetra tower
             player["city"] = cities_idx[2]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Tetra Tower.")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         if choice == 2:
             # feldor
             player["city"] = cities_idx[0]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Feldor.")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         else:
             return player, wagon
@@ -105,9 +105,9 @@ def travel(
         if choice == 1:
             # crankston
             player["city"] = cities_idx[1]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Crankston.")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         else:
             return player, wagon
@@ -121,16 +121,16 @@ def travel(
         if choice == 1:
             # feldor
             player["city"] = cities_idx[0]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Feldor.")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         if choice == 2:
             # caralo
             player["city"] = cities_idx[5]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Caralo")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         else:
             return player, wagon
@@ -144,16 +144,16 @@ def travel(
         if choice == 1:
             # Cebella
             player["city"] = cities_idx[3]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Cebella.")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         if choice == 2:
             # hardrock
             player["city"] = cities_idx[6]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Hardrock")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         else:
             return player, wagon
@@ -168,23 +168,23 @@ def travel(
         if choice == 1:
             # Foyella
             player["city"] = cities_idx[4]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Foyella")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         if choice == 2:
             # feldor
             player["city"] = cities_idx[0]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Feldor.")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         if choice == 3:
             # caralo
             player["city"] = cities_idx[5]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Caralo")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         else:
             return player, wagon
@@ -199,23 +199,23 @@ def travel(
         if choice == 1:
             # Silter
             player["city"] = cities_idx[7]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Silter")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         if choice == 2:
             # feldor
             player["city"] = cities_idx[0]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Feldor.")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         if choice == 3:
             # Cebella
             player["city"] = cities_idx[3]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Cebella.")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         else:
             return player, wagon
@@ -230,23 +230,23 @@ def travel(
         if choice == 1:
             # Tobunia
             player["city"] = cities_idx[9]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Tobunia.")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         if choice == 2:
             # Ratherberg
             player["city"] = cities_idx[8]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Ratherberg.")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         if choice == 3:
             # Foyella
             player["city"] = cities_idx[4]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Foyella")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         else:
             return player, wagon
@@ -260,16 +260,16 @@ def travel(
         if choice == 1:
             # Ratherberg
             player["city"] = cities_idx[8]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Ratherberg.")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         if choice == 2:
             # Silter
             player["city"] = cities_idx[7]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Silter")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         else:
             return player, wagon
@@ -283,23 +283,27 @@ def travel(
         if choice == 1:
             # Silter
             player["city"] = cities_idx[7]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Silter")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         if choice == 2:
             # Tobunia
             player["city"] = cities_idx[9]
+            wagon = supply_cost(player, start_location, wagon)
             print(random.choice(player["city"]["intro_text"]))
             print("You have arrived in Tobunia.")
-            wagon = supply_cost(player, start_location, wagon)
             return player, wagon
         else:
             return player, wagon
 
 
 def supply_cost(player, start_location, wagon):
+    """
+    Dependency of travel().  Calculates supplies used during travel which determines distance.  Also has failure condition from starvation.
+    """
     from initial_generation import ROAD_LENGTHS
+    import sys
 
     # Construct the road key correctly
     road_key = "Road_" + start_location + "_" + player["city"]["name"]
@@ -311,7 +315,14 @@ def supply_cost(player, start_location, wagon):
         wagon["cart"]["supplies"] = wagon["cart"]["supplies"] - length
         if wagon["cart"]["supplies"] < 0:
             print("You ran out of supplies on the road. You have died")
-            # Consider implementing a game over condition here
+            print(
+                """
+                +------------------+
+                |    GAME OVER     |
+                +------------------+
+                """
+            )
+            sys.exit()
     else:
         print(
             f"Warning: No road found between {start_location} and {player['city']['name']}"

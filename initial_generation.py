@@ -57,7 +57,7 @@ def Wagon_Initialization():
             "gold": 0,
             "silver": random.randint(20, 80),
             "copper": 0,
-            "supplies": 100,
+            "supplies": 1,
             "corn": 0,
             "iron_ore": 0,
             "pelts": 0,
