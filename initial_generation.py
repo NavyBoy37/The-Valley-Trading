@@ -12,7 +12,7 @@ ITEM_WEIGHTS = {
     # currency weights
     "gold": 1,
     "silver": 1,
-    "gold": 1,
+    "copper": 1,
 }
 # initializes length of roads (determined by supplies used)
 ROAD_LENGTHS = {
