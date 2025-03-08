@@ -1,12 +1,12 @@
 ---
-Name: ''
-About:
-Title: 
-Labels:
-Assignees: 
+name: Bug Report
+about: Create a report to help us improve
+title: "[BUG]"
+labels: bug
+assignees: ''
 ---
 
-**Describe the solution you'd like**
-
+Describe the issue:
 
 Screenshots:
+<!-- Template content here -->
