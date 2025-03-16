@@ -12,9 +12,8 @@ from travel_functions import travel
 from running_functions import spcr
 from market_functions import visit_market
 from exchange_functions import visit_money_exchange
+from save_game import save_game, load_game, list_save_files
 from initial_generation import (
-    ITEM_WEIGHTS,
-    ROAD_LENGTHS,
     Feldor_Initialization,
     Crankston_Initialization,
     Tetra_Tower_Initialization,
@@ -44,14 +43,31 @@ cities_idx = [  # this exists to pass through each game function so that data ge
 ]
 
 
-"""Goods Guide
-corn
-iron_ore
+while True:
+    spcr()
+    print("Main Menu")
+    print("1. Load Game")
+    print("2. New Game")
+    print("3. Exit Game")
+    choice = str(input())
+    spcr()
 
-"""
-player = Player_Initialization()
-wagon = Wagon_Initialization()
-player["city"] = cities_idx[0]  # temp
+    if choice == "1":
+        list_save_files("save")
+        print("Please enter file name")
+        file_name = str(input())
+        player, wagon, cities_idx = load_game(file_name)
+        break
+
+    if choice == "2":
+        player = Player_Initialization()
+        wagon = Wagon_Initialization()
+        player["city"] = cities_idx[0]
+        break
+
+    if choice == "3":
+        sys.exit()
+
 # Game Intro Section
 print(
     "You finally did it... After years of hard work, you have enough silver to buy a cart."
@@ -70,7 +86,8 @@ while True:
     print("1. Travel")
     print("2. Visit Market")
     print("3. Visit Money Exchange")
-    print("9.  Quit Game")
+    print("8. Save Game")
+    print("9. Quit Game")
     choice = str(input())
 
     if choice == "1":
@@ -82,5 +99,11 @@ while True:
     if choice == "3":
         spcr()
         wagon = visit_money_exchange(wagon, player["city"])
+    if choice == "8":
+        print("Input file name...")
+        file_name = str(input())
+        save_game(player, wagon, cities_idx, file_name)
+        print("Game Saved")
+        spcr()
     if choice == "9":
         sys.exit()
