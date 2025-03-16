@@ -1,5 +1,8 @@
 import random
+import sys
+import time
 from running_functions import spcr
+from initial_generation import ROAD_LENGTHS
 
 """
 cities_idx helper
@@ -302,8 +305,6 @@ def supply_cost(player, start_location, wagon):
     """
     Dependency of travel().  Calculates supplies used during travel which determines distance.  Also has failure condition from starvation.
     """
-    from initial_generation import ROAD_LENGTHS
-    import sys
 
     # Construct the road key correctly
     road_key = "Road_" + start_location + "_" + player["city"]["name"]
@@ -312,20 +313,38 @@ def supply_cost(player, start_location, wagon):
     if road_key in ROAD_LENGTHS:
         length = ROAD_LENGTHS[road_key]
         # Deduct supplies based on road length
-        wagon["cart"]["supplies"] = wagon["cart"]["supplies"] - length
-        if wagon["cart"]["supplies"] < 0:
-            print("You ran out of supplies on the road. You have died")
-            print(
-                """
-                +------------------+
-                |    GAME OVER     |
-                +------------------+
-                """
-            )
-            sys.exit()
+        road_events(player, start_location, wagon)
+
     else:
         print(
             f"Warning: No road found between {start_location} and {player['city']['name']}"
         )
 
     return wagon
+
+
+def road_events(player, start_location, wagon):
+    # Construct the road key correctly
+    road_key = "Road_" + start_location + "_" + player["city"]["name"]
+
+    # Check if the road key exists in ROAD_LENGTHS
+    if road_key in ROAD_LENGTHS:
+        length = ROAD_LENGTHS[road_key]
+
+        # Iterate from 1 to length
+        for i in range(1, length + 1):
+            print("Day " + str(i))
+            time.sleep(1)
+            wagon["cart"]["supplies"] = wagon["cart"]["supplies"] - 1
+            if wagon["cart"]["supplies"] < 0:
+                print("You ran out of supplies on the road. You have died")
+                print(
+                    """
+                    +------------------+
+                    |    GAME OVER     |
+                    +------------------+
+                    """
+                )
+                sys.exit()
+    spcr()
+    return
