@@ -54,9 +54,11 @@ while True:
 
     if choice == "1":
         list_save_files("save")
-        print("Please enter file name")
         file_name = str(input())
         player, wagon, cities_idx = load_game(file_name)
+        if player == None or wagon == None or cities_idx == None:
+            print("Save file does not exist.  Closing game.")
+            sys.exit()
         break
 
     if choice == "2":

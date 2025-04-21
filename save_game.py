@@ -1,6 +1,7 @@
 import json
 import os
 import copy
+from running_functions import spcr
 
 
 def save_game(player, wagon, cities_idx, filename="the_valley_save.json"):
@@ -65,8 +66,11 @@ def list_save_files(save_directory):
     ]
 
     # Print files with numbers for selection
-    for i, file in enumerate(save_files, 1):
-        print(f"{i}. {file}")
+    print("Please type and enter a listed save")
+    spcr()
+    for file in save_files:
+        print(file)
+    spcr()
 
     # Optional: Let user select a file
 
